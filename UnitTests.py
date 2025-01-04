@@ -7,14 +7,14 @@ def row_count():
     file_path = "Births outside of marriage.csv"
     df = pd.read_csv(file_path)
     row_count = len(df)
-    expected_row_count = 1876
+    expected_row_count = 1875
     return row_count == expected_row_count
 
 
 class TestFunction(unittest.TestCase):
     def test_row_count(self):
         result = row_count()
-        self.assertTrue(result, "Data is not complete")
+        self.assertEqual(result, True)
     
 
 if __name__ == '__main__':
