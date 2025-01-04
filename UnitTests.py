@@ -14,7 +14,7 @@ def row_count():
 class TestFunction(unittest.TestCase):
     def test_row_count(self):
         result = row_count()
-        self.assertEqual(result,True)
+        self.assertTrue(result, "Data is not complete")
     
 
 if __name__ == '__main__':
