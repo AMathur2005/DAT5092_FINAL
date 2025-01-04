@@ -15,7 +15,7 @@ def column_count():
     file_path = "Births outside of marriage.csv"
     df = pd.read_csv(file_path)
     column_count = len(df.columns)
-    expected_column_count = 2
+    expected_column_count = 3
     return column_count == expected_column_count
 
 
