@@ -11,10 +11,21 @@ def row_count():
     #pandas reads in from -1, 1 less from actual row count.
     return row_count == expected_row_count
 
+def column_count():
+    file_path = "Births outside of marriage.csv"
+    df = pd.read_csv(file_path)
+    column_count = len(df.columns)
+    expected_column_count = 3
+    return column_count == expected_column_count
+
 
 class TestFunction(unittest.TestCase):
     def test_row_count(self):
         result = row_count()
+        self.assertEqual(result, True)
+
+    def test_column_count(self):
+        result = column_count()
         self.assertEqual(result, True)
     
 
