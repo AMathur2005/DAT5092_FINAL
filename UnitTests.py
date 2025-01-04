@@ -8,10 +8,7 @@ def row_count():
     df = pd.read_csv(file_path)
     row_count = len(df)
     expected_row_count = 1876
-    if row_count != expected_row_count:
-        return False
-    else:
-        return True
+    return row_count == expected_row_count
 
 
 class TestFunction(unittest.TestCase):
@@ -22,3 +19,4 @@ class TestFunction(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
