@@ -11,6 +11,8 @@ def row_count():
     #pandas reads in from -1, 1 less from actual row count.
     return row_count == expected_row_count
 
+#check if number of columns is 3
+#if not, fail, if yes, true
 def column_count():
     file_path = "Births outside of marriage.csv"
     df = pd.read_csv(file_path)
