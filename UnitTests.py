@@ -1,23 +1,23 @@
 import unittest
 import pandas as pd
-# check if number of rows is 1876
+# check if number of rows is 14894
 # if not, fail, if yes, true
 
 def row_count():
-    file_path = "Births outside of marriage.csv"
+    file_path = "Armed Forces Data.csv"
     df = pd.read_csv(file_path)
     row_count = len(df)
-    expected_row_count = 1875 
+    expected_row_count = 14895 
     #pandas reads in from -1, 1 less from actual row count.
     return row_count == expected_row_count
 
-#check if number of columns is 3
+#check if number of columns is 5
 #if not, fail, if yes, true
 def column_count():
-    file_path = "Births outside of marriage.csv"
+    file_path = "Armed Forces Data.csv"
     df = pd.read_csv(file_path)
     column_count = len(df.columns)
-    expected_column_count = 3
+    expected_column_count = 5
     return column_count == expected_column_count
 
 
