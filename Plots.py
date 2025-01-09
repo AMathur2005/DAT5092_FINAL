@@ -35,10 +35,10 @@ plt.show()
 
 #---------------------------------------Bar Graph ------------------------------------------------#
 # Filter the dataset for the selected countries and the year 2015
-filtered_data_2016 = data[(data['Entity'].isin(lic_countries + mic_countries + hic_countries)) & (data['Year'] == 2015)]
+Countries_2015 = data[(data['Entity'].isin(lic_countries + mic_countries + hic_countries)) & (data['Year'] == 2015)]
 
 # Sort by armed forces in descending order to show ranking
-filtered_data_2016 = filtered_data_2016.sort_values(by='Armed forces personnel (% of total population) (World Bank (2017))')
+Countries_2015 = Countries_2015.sort_values(by='Armed forces personnel (% of total population) (World Bank (2017))')
 
 color_mapping = { #assigning colours to designate countries income
     'Mozambique': 'blue', 'Niger': 'blue', 'Nigeria': 'blue', 'Sierra Leone': 'blue', 'Yemen': 'blue',
@@ -46,16 +46,22 @@ color_mapping = { #assigning colours to designate countries income
     'Australia': 'red', 'Canada': 'red', 'Germany': 'red', 'Japan': 'red', 'United States': 'red'
 }
 
-colors = filtered_data_2016['Entity'].map(color_mapping) 
+colors = Countries_2015['Entity'].map(color_mapping) 
 
 #the bar chart
 plt.figure(figsize=(15, 8))
-plt.barh(filtered_data_2016['Entity'], filtered_data_2016['Armed forces personnel (% of total population) (World Bank (2017))'], color=colors)
+plt.barh(Countries_2015['Entity'], Countries_2015['Armed forces personnel (% of total population) (World Bank (2017))'], color=colors)
 
 # Adding labels and title
 plt.xlabel('Armed Forces Personnel (% of Total Population)')
 plt.ylabel('Country')
 plt.title('Proportion of Armed Personnel from Total Population by Country in 2015')
 plt.grid(True, linestyle='--', linewidth=0.5)
+
+#custom legend to show bars and colour
+plt.legend(handles=[plt.Rectangle((0,0),1,1, color='blue', label='LIC'),
+                    plt.Rectangle((0,0),1,1, color='green', label='MIC'),
+                    plt.Rectangle((0,0),1,1, color='red', label='HIC')],
+           title='Level of Economic development')
 
 plt.show()
