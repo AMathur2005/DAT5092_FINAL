@@ -76,6 +76,24 @@ def categorise(entity):
     elif entity in hic_countries:
         return 'HIC'
     
+#  function to create a new column for income categories
+COUNTRIES['Income Category'] = COUNTRIES['Entity'].apply(categorise)
+
+# Plotting the box plots
+plt.figure(figsize=(12, 8))
+COUNTRIES.boxplot(
+    column='Armed forces personnel (% of total population) (World Bank (2017))',
+    by='Income Category',
+    grid=True
+)
+
+plt.xlabel('Income Category')
+plt.ylabel('Armed Forces Personnel (% of Total Population)')
+plt.title('Armed Forces Personnel by Income Category for all years')
+plt.grid(True)
+plt.suptitle('')  # remove unwanted title addition
+
+plt.show()
 
 
 
