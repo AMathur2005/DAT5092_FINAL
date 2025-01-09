@@ -18,7 +18,7 @@ average_hic = COUNTRIES[COUNTRIES['Entity'].isin(hic_countries)].groupby('Year')
 
 plt.figure(figsize=(15, 10))
 plt.plot(average_hic.index, average_hic.values, label='HIC', color='green')
-plt.plot(average_mic.index, average_mic.values, label='MIC', color='yellow')
+plt.plot(average_mic.index, average_mic.values, label='MIC', color='orange')
 plt.plot(average_lic.index, average_lic.values, label='LIC', color='red')
 #colours for each level of development
 
@@ -29,3 +29,4 @@ plt.legend()
 plt.grid(True)
 
 plt.show()
+
