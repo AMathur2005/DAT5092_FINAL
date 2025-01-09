@@ -50,7 +50,7 @@ colors = Countries_2015['Entity'].map(color_mapping)
 
 #the bar chart
 plt.figure(figsize=(15, 8))
-plt.barh(Countries_2015['Entity'], Countries_2015['Armed forces personnel (% of total population) (World Bank (2017))'], color=colors)
+plt.barh(Countries_2015['Entity'], Countries_2015['Armed forces personnel (% of total population) (World Bank (2017))'] * 100, color=colors)  #show as percentage
 
 # Adding labels and title
 plt.xlabel('Armed Forces Personnel (% of Total Population)')
@@ -65,3 +65,17 @@ plt.legend(handles=[plt.Rectangle((0,0),1,1, color='blue', label='LIC'),
            title='Level of Economic development')
 
 plt.show()
+
+#---------------------------------------Box Plot ------------------------------------------------#
+# Categorise countriies by development
+def categorise(entity):
+    if entity in lic_countries:
+        return 'LIC'
+    elif entity in mic_countries:
+        return 'MIC'
+    elif entity in hic_countries:
+        return 'HIC'
+    
+
+
+
