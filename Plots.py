@@ -41,9 +41,9 @@ Countries_2015 = data[(data['Entity'].isin(lic_countries + mic_countries + hic_c
 Countries_2015 = Countries_2015.sort_values(by='Armed forces personnel (% of total population) (World Bank (2017))')
 
 color_mapping = { #assigning colours to designate countries income
-    'Mozambique': 'blue', 'Niger': 'blue', 'Nigeria': 'blue', 'Sierra Leone': 'blue', 'Yemen': 'blue',
-    'Argentina': 'green', 'Brazil': 'green', 'China': 'green', 'India': 'green', 'South Africa': 'green',
-    'Australia': 'red', 'Canada': 'red', 'Germany': 'red', 'Japan': 'red', 'United States': 'red'
+    'Mozambique': 'Red', 'Niger': 'Red', 'Nigeria': 'Red', 'Sierra Leone': 'Red', 'Yemen': 'Red',
+    'Argentina': 'Orange', 'Brazil': 'Orange', 'China': 'Orange', 'India': 'Orange', 'South Africa': 'Orange',
+    'Australia': 'Green', 'Canada': 'Green', 'Germany': 'Green', 'Japan': 'Green', 'United States': 'Green'
 }
 
 colors = Countries_2015['Entity'].map(color_mapping) 
@@ -75,7 +75,7 @@ def categorise(entity):
         return 'MIC'
     elif entity in hic_countries:
         return 'HIC'
-    
+
 #  function to create a new column for income categories
 COUNTRIES['Income Category'] = COUNTRIES['Entity'].apply(categorise)
 
@@ -89,7 +89,7 @@ COUNTRIES.boxplot(
 
 plt.xlabel('Income Category')
 plt.ylabel('Armed Forces Personnel (% of Total Population)')
-plt.title('Armed Forces Personnel by Income Category for all years')
+plt.title('Armed Forces Personnel by Income Category (1960 - 2015)')
 plt.grid(True)
 plt.suptitle('')  # remove unwanted title addition
 
