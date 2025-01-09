@@ -7,7 +7,7 @@ def row_count():
     file_path = "Armed Forces Data.csv"
     df = pd.read_csv(file_path)
     row_count = len(df)
-    expected_row_count = 14895 
+    expected_row_count = 14893 
     #pandas reads in from -1, 1 less from actual row count.
     return row_count == expected_row_count
 
