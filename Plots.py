@@ -59,9 +59,9 @@ plt.title('Proportion of Armed Personnel from Total Population by Country in 201
 plt.grid(True, linestyle='--', linewidth=0.5)
 
 #custom legend to show bars and colour
-plt.legend(handles=[plt.Rectangle((0,0),1,1, color='blue', label='LIC'),
-                    plt.Rectangle((0,0),1,1, color='green', label='MIC'),
-                    plt.Rectangle((0,0),1,1, color='red', label='HIC')],
+plt.legend(handles=[plt.Rectangle((0,0),1,1, color='Green', label='HIC'),
+                    plt.Rectangle((0,0),1,1, color='Orange', label='MIC'),
+                    plt.Rectangle((0,0),1,1, color='Red', label='LIC')],
            title='Level of Economic development')
 
 plt.show()
