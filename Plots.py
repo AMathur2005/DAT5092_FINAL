@@ -3,13 +3,14 @@ import matplotlib.pyplot as plt
 
 data = pd.read_csv('Armed Forces Data.csv')
 
-#---------------------------------------Line Graph ------------------------------------------------#
+
 
 # List of countries for each level of development
 lic_countries = ['Mozambique', 'Niger', 'Nigeria', 'Sierra Leone', 'Yemen']
 mic_countries = ['Argentina', 'Brazil', 'China', 'India', 'South Africa']
 hic_countries = ['Australia', 'Canada', 'Germany', 'Japan', 'United States']
 
+#---------------------------------------Line Graph ------------------------------------------------#
 COUNTRIES = data[data['Entity'].isin(lic_countries + mic_countries + hic_countries)]
 
 #Average % of armed forces for each level of development
@@ -33,17 +34,28 @@ plt.grid(True)
 plt.show()
 
 #---------------------------------------Bar Graph ------------------------------------------------#
-
 # Filter the dataset for the selected countries and the year 2015
 filtered_data_2016 = data[(data['Entity'].isin(lic_countries + mic_countries + hic_countries)) & (data['Year'] == 2015)]
 
 # Sort by armed forces in descending order to show ranking
 filtered_data_2016 = filtered_data_2016.sort_values(by='Armed forces personnel (% of total population) (World Bank (2017))')
 
-color_mapping = {
+color_mapping = { #assigning colours to designate countries income
     'Mozambique': 'blue', 'Niger': 'blue', 'Nigeria': 'blue', 'Sierra Leone': 'blue', 'Yemen': 'blue',
     'Argentina': 'green', 'Brazil': 'green', 'China': 'green', 'India': 'green', 'South Africa': 'green',
     'Australia': 'red', 'Canada': 'red', 'Germany': 'red', 'Japan': 'red', 'United States': 'red'
 }
 
+colors = filtered_data_2016['Entity'].map(color_mapping) 
 
+#the bar chart
+plt.figure(figsize=(15, 8))
+plt.barh(filtered_data_2016['Entity'], filtered_data_2016['Armed forces personnel (% of total population) (World Bank (2017))'], color=colors)
+
+# Adding labels and title
+plt.xlabel('Armed Forces Personnel (% of Total Population)')
+plt.ylabel('Country')
+plt.title('Proportion of Armed Personnel from Total Population by Country in 2015')
+plt.grid(True, linestyle='--', linewidth=0.5)
+
+plt.show()
