@@ -17,14 +17,14 @@ average_hic = COUNTRIES[COUNTRIES['Entity'].isin(hic_countries)].groupby('Year')
 #multiply by 100 to show percentage from decimal 
 
 plt.figure(figsize=(15, 10))
-plt.plot(average_lic.index, average_lic.values, label='LIC', color='blue')
-plt.plot(average_mic.index, average_mic.values, label='MIC', color='green')
-plt.plot(average_hic.index, average_hic.values, label='HIC', color='red')
+plt.plot(average_hic.index, average_hic.values, label='HIC', color='green')
+plt.plot(average_mic.index, average_mic.values, label='MIC', color='yellow')
+plt.plot(average_lic.index, average_lic.values, label='LIC', color='red')
 #colours for each level of development
 
 plt.xlabel('Year')
 plt.ylabel('Armed Forces Personnel as Percentage of Total Population (%)')
-plt.title('Average Percentage of Armed Forces Personnel by Income Level')
+plt.title('Armed Forces Personnel as Percentage of Country Population by Income level')
 plt.legend()
 plt.grid(True)
 
