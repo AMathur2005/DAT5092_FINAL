@@ -41,15 +41,17 @@ all_countries = [
     'Australia', 'Canada', 'Germany', 'Japan', 'United States'
 ]
 
+colours = [ 'blue', 'orange', 'green', 'red', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan', 'black', 'violet', 'magenta', 'navy', 'lime']
+
 filtered_data = data[data['Entity'].isin(all_countries)]
 
 
 plt.figure(figsize=(15, 10))
 
-# Plotting the percentage of armed forces personnel for each country in the list
-for country in all_countries:
+# Plotting the percentage of armed forces personnel for each country in the list and assigning colours
+for country, colours in zip(all_countries, colours) :
     country_data = filtered_data[filtered_data['Entity'] == country]
-    plt.plot(country_data['Year'], country_data['Armed forces personnel (% of total population) (World Bank (2017))'] * 100, label=country)
+    plt.plot(country_data['Year'], country_data['Armed forces personnel (% of total population) (World Bank (2017))'] * 100, label=country, color = colours)
 
 plt.xlabel('Year')
 plt.ylabel('Armed Forces Personnel (% of Total Population)')
