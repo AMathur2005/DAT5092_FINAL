@@ -33,6 +33,34 @@ plt.grid(True)
 
 plt.show()
 
+#---------------------------------------Line Graph ------------------------------------------------#
+# selected countries without economic designation
+all_countries = [
+    'Mozambique', 'Niger', 'Nigeria', 'Sierra Leone', 'Yemen',
+    'Argentina', 'Brazil', 'China', 'India', 'South Africa',
+    'Australia', 'Canada', 'Germany', 'Japan', 'United States'
+]
+
+filtered_data = data[data['Entity'].isin(all_countries)]
+
+
+plt.figure(figsize=(15, 10))
+
+# Plotting the percentage of armed forces personnel for each country in the list
+for country in all_countries:
+    country_data = filtered_data[filtered_data['Entity'] == country]
+    plt.plot(country_data['Year'], country_data['Armed forces personnel (% of total population) (World Bank (2017))'] * 100, label=country)
+
+plt.xlabel('Year')
+plt.ylabel('Armed Forces Personnel (% of Total Population)')
+plt.title('Percentage of Armed Forces Personnel for Selected Countries')
+plt.legend()
+plt.grid(True)
+
+plt.show()
+
+
+
 #---------------------------------------Bar Graph ------------------------------------------------#
 # Filter the dataset for the selected countries and the year 2015
 Countries_2015 = data[(data['Entity'].isin(lic_countries + mic_countries + hic_countries)) & (data['Year'] == 2015)]
